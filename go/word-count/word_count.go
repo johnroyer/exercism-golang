@@ -15,7 +15,7 @@ func WordCount(phrase string) Frequency {
 	for {
 		char = phrase[index : index+1]
 
-		if isSaperateWord(char) {
+		if isSeparateWord(char) {
 			if 0 < len(tmpString) {
 				freq[strings.ToLower(tmpString)]++
 			}
@@ -36,7 +36,7 @@ func WordCount(phrase string) Frequency {
 	return freq
 }
 
-func isSaperateWord(word string) bool {
+func isSeparateWord(word string) bool {
 	valid := "abcdefghijklmnopqrstuvwxyz1234567890"
 	char := strings.ToLower(word)
 
