@@ -4,14 +4,13 @@ type Frequency map[string]int
 
 func WordCount(phrase string) Frequency {
 	freq := make(Frequency)
-	strLength := len(phrase)
-	index := 0
+	index := 1
 	lastSplitWordIndex := 0
 	var tmpString string
 
 	for {
 		if isSaperateWord(phrase[index : index+1]) {
-			tmpString = phrase[lastSplitWordIndex:index]
+			tmpString = phrase[lastSplitWordIndex+1 : index+1]
 
 			counter, ok := freq[tmpString]
 			if ok {
@@ -21,11 +20,9 @@ func WordCount(phrase string) Frequency {
 			}
 
 			lastSplitWordIndex = index
-		} else {
-			index++
 		}
 
-		if index == strLength {
+		if index+1 == len(phrase) {
 			tmpString = phrase[lastSplitWordIndex:]
 			counter, ok := freq[tmpString]
 			if ok {
@@ -35,6 +32,8 @@ func WordCount(phrase string) Frequency {
 			}
 			break
 		}
+
+		index++
 	}
 
 	return freq
