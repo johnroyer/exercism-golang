@@ -12,11 +12,10 @@ func WordCount(phrase string) Frequency {
 		char = phrase[index : index+1]
 
 		if isSaperateWord(char) {
-			println(tmpString)
 
-			counter, ok := freq[tmpString]
+			value, ok := freq[tmpString]
 			if ok {
-				freq[tmpString] = counter + 1
+				freq[tmpString] = value + 1
 			} else {
 				freq[tmpString] = 1
 			}
@@ -27,9 +26,9 @@ func WordCount(phrase string) Frequency {
 		}
 
 		if index+1 == len(phrase) {
-			counter, ok := freq[tmpString]
+			value, ok := freq[tmpString]
 			if ok {
-				freq[tmpString] = counter + 1
+				freq[tmpString] = value + 1
 			} else {
 				freq[tmpString] = 1
 			}
