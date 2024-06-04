@@ -31,7 +31,7 @@ func WordCount(phrase string) Frequency {
 }
 
 func isSaperateWord(word string) bool {
-	valid := "abcdefghijklmnopqrstuvxyz1234567890"
+	valid := "abcdefghijklmnopqrstuvwxyz1234567890"
 	char := strings.ToLower(word)
 
 	position := strings.Index(valid, char)
