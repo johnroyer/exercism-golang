@@ -31,13 +31,22 @@ func WordCount(phrase string) Frequency {
 
 func isSaperateWord(word string) bool {
 	switch word {
+	case ",":
+		return true
 	case ":":
+		return true
 	case "!":
+		return true
 	case "?":
+		return true
 	case "\t":
+		return true
 	case "\n":
+		return true
 	case " ":
 		return true
+	default:
+		return false
 	}
 	return false
 }
