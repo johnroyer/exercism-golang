@@ -1,6 +1,8 @@
 package wordcount
 
-import "strings"
+import (
+	"strings"
+)
 
 type Frequency map[string]int
 
@@ -14,14 +16,18 @@ func WordCount(phrase string) Frequency {
 		char = phrase[index : index+1]
 
 		if isSaperateWord(char) {
-			freq[tmpString]++
+			if 0 < len(tmpString) {
+				freq[strings.ToLower(tmpString)]++
+			}
 			tmpString = ""
 		} else {
 			tmpString = tmpString + char
 		}
 
 		if index+1 == len(phrase) {
-			freq[tmpString]++
+			if 0 < len(tmpString) {
+				freq[strings.ToLower(tmpString)]++
+			}
 			break
 		}
 
