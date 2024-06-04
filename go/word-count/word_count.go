@@ -1,5 +1,7 @@
 package wordcount
 
+import "strings"
+
 type Frequency map[string]int
 
 func WordCount(phrase string) Frequency {
@@ -25,28 +27,17 @@ func WordCount(phrase string) Frequency {
 
 		index++
 	}
-
 	return freq
 }
 
 func isSaperateWord(word string) bool {
-	switch word {
-	case ",":
+	valid := "abcdefghijklmnopqrstuvxyz"
+	char := strings.ToLower(word)
+
+	position := strings.Index(valid, char)
+
+	if -1 == position {
 		return true
-	case ":":
-		return true
-	case "!":
-		return true
-	case "?":
-		return true
-	case "\t":
-		return true
-	case "\n":
-		return true
-	case " ":
-		return true
-	default:
-		return false
 	}
 	return false
 }
