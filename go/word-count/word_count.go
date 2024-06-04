@@ -8,14 +8,12 @@ func WordCount(phrase string) Frequency {
 	index := 0
 	lastSplitWordIndex := 0
 	from := 0
-	length := 0
 	var tmpString string
 
 	for {
-		if isSaperateWord(phrase[index:1]) {
+		if isSaperateWord(phrase[index : index+1]) {
 			from = lastSplitWordIndex + 1
-			length = index - lastSplitWordIndex
-			tmpString = phrase[from:length]
+			tmpString = phrase[from : index-1]
 
 			counter, ok := freq[tmpString]
 			if ok {
@@ -24,6 +22,7 @@ func WordCount(phrase string) Frequency {
 				freq[tmpString] = 1
 			}
 
+			lastSplitWordIndex = index
 		} else {
 			index++
 		}
